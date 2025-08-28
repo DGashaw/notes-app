@@ -1,0 +1,35 @@
+{
+  "name": "users-auth-server",
+  "version": "1.0.0",
+  "description": "It enable to authenticate users locally or with third party auth such as Google, Facebook, Twitter and so on.",
+  "license": "ISC",
+  "author": "Daniel Gashaw",
+  "type": "commonjs",
+  "main": "user-server.js",
+  "scripts": {
+    "postgresSql-setup": "cat ./models/schema/user-schema-postgresSql.sql | docker exec -i notes-postgres psql -U notesApp -d notesapp",
+    "start": "cross-env DEBUG=users:* PORT=5858 SEQUELIZE_CONNECT=config/sequelize-postgres.yaml NOTES_MODEL=postgres nodemon ./user-server.mjs",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "axios": "^1.11.0",
+    "bcrypt": "^6.0.0",
+    "body-parser": "^2.2.0",
+    "commander": "^14.0.0",
+    "cross-env": "^10.0.0",
+    "debug": "^4.4.1",
+    "dotenv": "^17.2.1",
+    "express": "^5.1.0",
+    "fs-extra": "^11.3.1",
+    "js-yaml": "^4.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "morgan": "^1.10.1",
+    "pg": "^8.16.3",
+    "restify": "^9.1.0",
+    "restify-clients": "^4.2.0",
+    "sequelize": "^6.37.7"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.10"
+  }
+}

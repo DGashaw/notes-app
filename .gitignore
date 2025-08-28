@@ -143,3 +143,4 @@ notes/.env
 notes/log
 notes/session/
 notes/playground/
+users/.env
