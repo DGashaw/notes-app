@@ -1,0 +1,13 @@
+<header>
+    <h1>{{title}}</h1>
+    <div class="navbar">
+        <p><a href="/">Home</a>  |  
+        <a href="/notes/add">Add Note</a> |
+        {{#if user}}
+        <a href="/users/logout">Logout - {{user.username}}</a>
+        {{else}}
+        <a href="/users/login">Login</a>
+        {{/if}}
+        </p>
+    </div>
+</header>

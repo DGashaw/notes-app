@@ -1,0 +1,43 @@
+{
+  "name": "notes",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "postgresSql-setup": "cat ./models/schema/schema-postgresSql.sql | docker exec -i notes-postgres psql -U notesApp -d notesapp",
+    "sqlite3-setup": "sqlite3 ./models/db/database.sqlite3 --init models/schema/schema-sqlite3.sql",
+    "start": "cross-env node ./app.mjs",
+    "development": "cross-env NODE_ENV=development DEBUG=notes:* nodemon ./app.mjs",
+    "sqlite3-start": "NOTES_MODEL=sqlite3 cross-env NODE_ENV=development PORT=3002 DEBUG=notes:* nodemon ./app.mjs",
+    "sqlite-sequelize-start": "NOTES_MODEL=sequelize  SEQUELIZE_CONNECT=config/sequelize-sqlite.yaml cross-env NODE_ENV=development PORT=3002 DEBUG=notes:* nodemon ./app.mjs",
+    "mongodb-start": "cross-env NOTES_MODEL=mongodb NODE_ENV=development PORT=3003 DEBUG=notes:* nodemon ./app.mjs",
+    "sequelize-start": "cross-env NOTES_MODEL=sequelize SEQUELIZE_CONNECT=config/sequelize-postgres.yaml PORT=3001 NODE_ENV=development DEBUG=notes:* nodemon ./app.mjs"
+  },
+  "dependencies": {
+    "body-parser": "^2.2.0",
+    "cookie-parser": "~1.4.4",
+    "cross-env": "^10.0.0",
+    "debug": "~2.6.9",
+    "dotenv": "^17.2.1",
+    "express": "^4.21.2",
+    "express-session": "^1.18.2",
+    "hbs": "^4.2.0",
+    "http-errors": "~1.6.3",
+    "js-yaml": "^4.1.0",
+    "mongodb": "^6.18.0",
+    "morgan": "^1.10.1",
+    "passport": "^0.7.0",
+    "passport-google-oidc": "^0.1.0",
+    "passport-local": "^1.0.0",
+    "pg": "^8.16.3",
+    "pg-hstore": "^2.3.4",
+    "restify": "^9.1.0",
+    "rotating-file-stream": "^3.2.6",
+    "sequelize": "^6.37.7",
+    "session-file-store": "^1.5.0",
+    "sqlite3": "^5.1.7",
+    "superagent": "^10.2.3"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.10"
+  }
+}

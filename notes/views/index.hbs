@@ -1,0 +1,10 @@
+<ul>
+    {{#if notesList}}
+    {{#each notesList as |note|}}
+    <!--<li>{{__note_key}}: <a href="notes/view?key={{__note_key}}">{{__note_title}}</a></li>-->
+    <li>{{note.key}}: <a href="notes/view?key={{note.key}}">{{note.title}}</a></li>
+    {{/each}}
+    {{else}}
+    <p>Can not find any notes. You can start add notes!!!</p>
+    {{/if}}
+</ul>

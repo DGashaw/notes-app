@@ -1,0 +1,8 @@
+<div class="noteView">
+    {{#if note}}
+    <h4><strong>{{note.title}}</strong></h4>
+    <p>{{note.body}}</p>
+    <hr/>
+    <p><a href="remove?key={{note.key}}">Delete</a> | <a href="edit?key={{note.key}}">Update</a></p>
+    {{/if}}
+</div>

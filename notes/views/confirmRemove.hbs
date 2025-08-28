@@ -1,0 +1,9 @@
+<div class="confirm-form">
+    <form method="post", action="remove/confirm">
+        <p>Remove the {{title}} note?</p>
+        <br/>
+        <input type="hidden" name="notekey" value="{{key}}"/>
+        <input type="submit" value="Delete" />
+        |<a href="view?key={{key}}">Cancel</a>
+    </form>
+</div>

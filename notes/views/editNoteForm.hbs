@@ -1,0 +1,14 @@
+<div id="edit-note">
+    <form method="post" action="/notes/edit">
+        <p>Key:{{note.key}}</p><br/>
+        <input type="hidden" id="key" name="key" value="{{note.key}}" /><br/><br/>
+        <label for="title">Title:</label><br/>
+        <input type="text" id="title" name="title" value="{{note.title}}" required/><br/><br/>
+        <label for="body">Body:</label><br>
+        <textarea  id="body" name="body" rows="10" cols="30" value="{{note.body}}" required>{{note.body}}</textarea>
+        <br/><br/>
+        <input type="submit" value="Update">
+
+    </form>
+
+</div>
